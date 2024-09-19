@@ -1,0 +1,23 @@
+.mat-spacer {
+  flex: 1 1 auto;
+}
+
+div h2 {
+  text-align: center;
+  margin-top: 15px;
+  /*margin-left: 27px;*/
+}
+
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-left: 25px;
+}
+
+.mat-typography {
+  margin-top: 0;
+  padding-top: 0;
+}

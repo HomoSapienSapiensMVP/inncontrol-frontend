@@ -1,0 +1,18 @@
+<mat-card class="card-content w-96">
+  <mat-card-header>
+    <mat-card-title>{{ task.name }}</mat-card-title>
+    <mat-card-subtitle>{{ task.description }}</mat-card-subtitle>
+    <button mat-icon-button *ngIf="manager" [matMenuTriggerFor]="menu" class="menu-button">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+<!--      <button mat-menu-item (click)="openUpdateDialog()">Update</button>-->
+      <button mat-menu-item (click)="deleteTask()">Delete</button>
+    </mat-menu>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Fecha de vencimiento: {{ task.dueDate | date }} | {{ task.dueDate | date:'HH:mm' }}</p>
+    <p>Empleado asignado: {{ task.employeeEmail }}</p>
+    <p>Estado: {{ task.pending ? "Pending": "Complete" }}</p>
+  </mat-card-content>
+</mat-card>

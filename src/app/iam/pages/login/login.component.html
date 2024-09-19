@@ -1,0 +1,38 @@
+<div class="w-full h-[92dvh] flex justify-center items-center bg-[#3f51b5]">
+  <div class="rounded-lg bg-slate-200 m-5 w-96 p-5">
+    <h3 class="mb-10">Iniciar Sesión</h3>
+    <form [formGroup]="myForm" (ngSubmit)="singInAccount()" class="form-add-post flex flex-col justify-center items-center gap-y-5">
+  
+      <!-- Título del post (podrías agregar más campos si es necesario) -->
+      <div class="w-full px-5">
+        <mat-form-field class="mat-form-field w-full">
+          <mat-label>Email</mat-label>
+          <input matInput type="username" placeholder="Ingrese su correo electrónico" [(ngModel)]="this.email" formControlName="email" required
+          >
+          <mat-error *ngIf="myForm.get('email')?.invalid">
+            Email es requerido y debe ser un correo electrónico válido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="w-full px-5">
+        <mat-form-field class="mat-form-field w-full">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="Ingrese su contraseña" [(ngModel)]="this.password" formControlName="password" required>
+          <mat-error *ngIf="myForm.get('password')?.invalid">
+            Contraseña es requerida y debe tener al menos 6 caracteres.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="content-button w-full px-5" style="text-align: center">
+        <button  class="text-white bg-[#3f51b5] rounded-lg w-full py-3 hover:bg-[#28378d] transition" type="submit">Iniciar sesión</button>
+        <div class="text-signup">
+          <p  style="padding-top: 1rem">¿No tienes una cuenta?</p>
+          <a routerLink="/register" class="text-[#3f51b5] font-bold">Registrate</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>

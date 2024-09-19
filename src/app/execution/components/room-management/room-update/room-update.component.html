@@ -1,0 +1,7 @@
+<button mat-raised-button class="room-state" [matMenuTriggerFor]="menu" color="primary" [ngClass]="{'occupied': selected === 'Occupied', 'in-service': selected === 'InService', 'vacant': selected === 'Vacant'}">{{ selected }}</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item value="Occupied" (click)="updateRoom('Occupied')">Occupied</button>
+  <button mat-menu-item value="InService" (click)="updateRoom('InService')">InService</button>
+  <button mat-menu-item value="Vacant" (click)="updateRoom('Vacant')">Vacant</button>
+</mat-menu>

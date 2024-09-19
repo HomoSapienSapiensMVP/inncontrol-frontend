@@ -1,0 +1,47 @@
+.rectangle-description{
+  width:800px;
+  height: 200px;
+}
+.rectangle-employee{
+  width:800px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+@media (max-width: 992px) {
+  .rectangle-description {
+    width: 100%;
+    height: auto;
+  }
+  .rectangle-employee{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .rectangle-description {
+    width: 100%;
+    height: auto;
+  }
+  .rectangle-employee{
+    width: 100%;
+    height: auto;
+  }
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.flex-container > mat-form-field {
+  flex: 1 0 200px;
+  margin: 10px;
+}

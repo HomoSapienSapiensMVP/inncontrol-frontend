@@ -1,0 +1,17 @@
+<div class="rooms-container">
+  <h1 class="card-title">Rooms</h1>
+</div>
+<div class="rooms-container">
+  <div class="rooms-buttons">
+    <app-room-create-button (roomCreated)="createRoom($event)"></app-room-create-button>
+  </div>
+</div>
+<div class="card-container">
+  <div class="card-display">
+    <app-rooms-card class="card" *ngFor="let room of roomsData" [room]="room" (clicked)="fetchRooms()" (deletedRoomEvent)="onDeleteRoomEvent($event)"></app-rooms-card>
+
+    <!--                    (stateRoomEvent)=""-->
+<!--                    (delete)="onDeleteItem($event)"></app-rooms-card>-->
+  </div>
+</div>
+

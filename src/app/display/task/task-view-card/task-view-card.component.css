@@ -1,0 +1,28 @@
+.cardContent{
+  max-width: 20vw;
+  min-width: 20vw;
+  height: auto;
+  margin: 1rem;
+}
+.title{
+  text-align: center;
+}
+.subtitle{
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.btn{
+  width: 20%;
+}
+.btnUpd{
+  width: 100%;
+}
+btn_container{
+  display: flex;
+  justify-content: center;
+}

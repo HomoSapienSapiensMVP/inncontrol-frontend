@@ -1,0 +1,23 @@
+<mat-card class="card-content" (click)="clickedEmployee()">
+  <mat-card-header class="messageTitle">
+    <mat-card-title class="title">{{ this.name }}
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="edit()">Edit</button>
+        <button mat-menu-item (click)="delete()">Delete</button>
+      </mat-menu>
+    </mat-card-title>
+    <mat-card-subtitle class="subtitle-text">Role: {{ employee.role }}</mat-card-subtitle>
+    <mat-card-subtitle class="subtitle-text">Email: {{ this.email }}</mat-card-subtitle>
+
+    <button
+      *ngIf="false"
+      (click)="clickedMenu()" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content class="EmployeeCardContent">
+    <div class="subtitle">
+      <mat-card-subtitle class="subtitle-text">Profile ID: {{ employee.employeeId }}</mat-card-subtitle>
+    </div>
+  </mat-card-content>
+</mat-card>

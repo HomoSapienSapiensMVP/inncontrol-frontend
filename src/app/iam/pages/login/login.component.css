@@ -1,0 +1,59 @@
+.container {
+  padding: 20px 0;
+  width: 500px;
+  background-color: gainsboro;
+  margin: 50px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+.role-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.role-selection label {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.role-selection input {
+  margin-right: 10px;
+}
+
+.text-signup {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .input-box {
+    flex-direction: row;
+    justify-content: space-between;
+    color: #0E3026;
+    height: 120px;
+  }
+  .role-selection {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .text-signup {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,29 @@
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.schedule-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  place-items: center;
+  margin: 10px 0;
+}
+
+.schedule-row h1 {
+  font-size: 2em;
+  font-weight: 500;
+  margin: 0;
+}
+
+app-schedule-view {
+  width: 100%;
+}

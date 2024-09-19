@@ -1,0 +1,11 @@
+button.occupied {
+  background-color: #e53529;
+}
+
+button.in-service {
+  background-color: #e6890b;
+}
+
+button.room-state {
+  width: 6rem;
+}

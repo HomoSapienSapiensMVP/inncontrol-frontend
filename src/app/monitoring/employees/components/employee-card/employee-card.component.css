@@ -1,0 +1,45 @@
+.EmployeeCardContent {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+.messageTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert {
+  color: #3f76b5;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+
+.text {
+  width: 50%;
+  height: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.subtitle-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtitle {
+  width: 50%;
+  height: 5rem;
+}
+

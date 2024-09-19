@@ -1,0 +1,31 @@
+/* div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 10px 30px;
+}
+
+mat-card {
+  background-color: transparent;
+  box-shadow: transparent;
+  transition: background-color 0.5s ease;
+}
+
+mat-card-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  background-color: #72B8EB;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+mat-card:hover {
+  background-color: lightgray;
+}
+
+mat-card-title {
+  margin-top: 10px;
+} */

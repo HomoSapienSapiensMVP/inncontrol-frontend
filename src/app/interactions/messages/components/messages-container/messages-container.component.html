@@ -1,0 +1,22 @@
+<div class="container">
+  <span class="header">
+    <h1 class="card-title">Messages</h1>
+    <button mat-icon-button aria-label="Messages button" (click)="recieveFilter('Unread')">
+      <mat-icon class="item" [matBadge]="unreads" [matBadgeHidden]="unread" aria-hidden="false">notifications</mat-icon>
+    </button>
+  </span>
+  <span class="header">
+    <app-search-content [options]="options" (optionSelected)="recieveFilter($event)" (search)="searchFilter($event)"></app-search-content>
+    <button class="addButton" mat-icon-button aria-label="add message button" (click)="openMessageDialog(null)">
+      <mat-icon class="add" aria-hidden="false">add_circle</mat-icon>
+    </button>
+  </span>
+  <div class="card-display" *ngIf="loaded">
+    <app-messages-card class="card" *ngFor="let messages of paginatedMessages" [message]="messages" (deleted)="deleteMessage($event)" (state)="changeState($event)" (clicked)="openDialog(messages.id)"></app-messages-card>
+    <h1 *ngIf="paginatedMessages.length <= 0"> It seems you don't have any messages yet...</h1>
+  </div>
+  <div class="pagination-controls">
+    <button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+    <button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= allMessages.length">Next</button>
+  </div>
+</div>

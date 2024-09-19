@@ -1,0 +1,15 @@
+<div class="container">
+  <span class="header"> <h1 class="card-title">Employee</h1>
+    <button mat-icon-button  aria-label="Employee filter button" (click)="receiveFilter('Unread')">
+    </button>
+  </span>
+  <span class="header">
+    <app-search-content [options]="this.options" (optionSelected)="receiveFilter($event)" (search)="searchFilter($event)" ></app-search-content>
+  </span>
+  <div class="card-display">
+    <app-employee-card class="card" *ngFor="let employees of EmployeesArray" [employee]="employees" [name]="employees.names"
+                       [email]="employees.email"
+                       (deleted)="deleteEmployee($event)" (updated)="updateEmployee($event)" ></app-employee-card>
+    <h1 *ngIf="EmployeesArray.length<=0"> It seems you dont have any Employees yet...</h1>
+  </div>
+</div>

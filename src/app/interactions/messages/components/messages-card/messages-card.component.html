@@ -1,0 +1,22 @@
+<mat-card class="card-content" (click)="clickedMessage()">
+  <mat-card-header class="messageTitle">
+    <mat-card-title class="title" >{{this.message.subject}}<mat-icon *ngIf="unread" class="alert">error</mat-icon>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="changeState()">Mark as Read</button>
+        <button mat-menu-item (click)="delete()" >Delete</button>
+      </mat-menu>
+    </mat-card-title>
+    <button (click)="clickedMenu()" mat-icon-button (onMenuClose)="this.Menu=false" [matMenuTriggerFor]="menu"><mat-icon>more_horiz</mat-icon></button>
+  </mat-card-header>
+  <mat-card-content class="messageCardContent">
+<div class="subtitle">
+  <mat-card-subtitle class="subtitle-text" >from: {{this.message.sender}}</mat-card-subtitle>
+  <mat-card-subtitle class="subtitle-text">to: {{this.message.receiver}}</mat-card-subtitle>
+  <mat-card-subtitle class="subtitle-text">Sent: {{this.message.date | date:'short'}}</mat-card-subtitle>
+</div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <p class="text">
+      {{this.message.text}}
+    </p>
+  </mat-card-content>
+</mat-card>

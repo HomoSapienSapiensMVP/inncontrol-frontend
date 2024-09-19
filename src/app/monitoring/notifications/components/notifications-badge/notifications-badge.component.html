@@ -1,0 +1,5 @@
+<div>
+  <button mat-icon-button  aria-label="Notification button" (click)="onOpenNotifications()">
+    <mat-icon aria-hidden="false" [matBadge]="notificationsService.getNiceNotificationsQuantity()" [matBadgeColor]="notificationsService.calculateBadgeColor()">notifications</mat-icon>
+  </button>
+</div>

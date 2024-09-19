@@ -1,0 +1,48 @@
+
+.buttons
+{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.header
+{
+  margin: 0 1rem;
+  width: 70vw;
+}
+
+.To{
+margin-top: 1rem;
+  width: 45vw;
+}
+
+.title
+{
+  margin-top: 1rem;
+  width: 70vw;
+}
+
+.messageContainer{
+  max-width: 70vw;
+  min-width: 70vw;
+  max-height: 20rem;
+  min-height: 20rem;
+  margin: 1rem;
+}
+
+.text{
+  width: 70vw;
+  overflow-y: scroll;
+  max-width: 70vw;
+  min-width: 70vw;
+  max-height: 20rem;
+  min-height: 20rem;
+}
+
+@media screen and (max-width: 768px) {
+  .text{
+    width: auto;
+  }
+}

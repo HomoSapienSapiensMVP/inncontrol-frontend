@@ -1,0 +1,52 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Edit Item</h2>
+  <button mat-icon-button class="close" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <form [formGroup]="InventoryItemFormGroup" (ngSubmit)="onSubmit()">
+
+    <mat-form-field >
+      <mat-label>Item Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="InventoryItemFormGroup.get('name')?.invalid">
+        Please enter a valid name
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="rectangle-description">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" class="input-large" >
+      <mat-error *ngIf="InventoryItemFormGroup.get('description')?.invalid">
+        Please enter a valid description
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <div class="flex-container">
+      <mat-form-field >
+        <mat-label>Provider Name</mat-label>
+        <input matInput formControlName="brandName">
+        <mat-error *ngIf="InventoryItemFormGroup.get('brandName')?.invalid">
+          Please enter a valid provider name
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <br>
+    <div class="flex-container">
+      <mat-form-field >
+        <mat-label>Quantity</mat-label>
+        <input matInput formControlName="quantity">
+        <mat-error *ngIf="InventoryItemFormGroup.get('quantity')?.invalid">
+          Please enter a valid stock number
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <br>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [mat-dialog-close]="data" [disabled]="InventoryItemFormGroup.invalid">Update</button>
+</mat-dialog-actions>
+

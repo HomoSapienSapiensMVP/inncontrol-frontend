@@ -1,0 +1,16 @@
+<form [formGroup]="InventoryDeleteFormGroup">
+<mat-dialog-content>
+  <mat-card-header>
+    <h2 style="text-align: center; font-weight: bold" mat-dialog-title>Are you sure?</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <p style="text-align: center"> You are about to delete this item from the inventory?</p>
+    <hr>
+    <p style="font-weight: bolder">This process cant be undone</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-flat-button (click)="onNoClick()">Cancel</button>
+    <button mat-flat-button (click)="borrarItem()">Delete</button>
+  </mat-card-footer>
+</mat-dialog-content>
+</form>

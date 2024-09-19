@@ -1,0 +1,60 @@
+<div class="task-container">
+
+    <h1 style="font-weight: bold; font-size: 5vh">Performance Reports</h1>
+    <div class="task-buttons">
+        <mat-form-field class="filter">
+
+            <mat-label matIconSuffix="filter_list" class="filter">Search for the state
+                <mat-icon fontIcon="filter_list"></mat-icon>
+            </mat-label>
+
+            <input class="filter-input" matInput (keyup)="applyFilter($event)" placeholder="Ex. item x" #input>
+
+        </mat-form-field>
+    </div>
+    <ng-container>
+        <div class="div">
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="taskName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Name</th>
+                        <td mat-cell *matCellDef="let row"> {{ row.taskName }}</td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+                        <td mat-cell *matCellDef="let row"> {{ row.status }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="userid">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee's name</th>
+                        <td mat-cell *matCellDef="let row"> {{ row.userId }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="creationDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> created</th>
+                        <td mat-cell *matCellDef="let row"> {{ row.creationDate | date: 'yyyy/MM/dd' }}
+                            | {{ row.creationDate | date:'HH:MM' }}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
+            </div>
+        </div>
+
+    </ng-container>
+
+</div>

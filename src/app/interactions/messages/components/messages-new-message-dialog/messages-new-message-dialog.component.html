@@ -1,0 +1,49 @@
+
+<div class="cardContain">
+  <div class="header">
+    <mat-form-field class="title">
+      <mat-label>{{ data.messages.subject }} Response</mat-label>
+      <input matInput [(ngModel)]="subject">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <mat-form-field class="To">
+      <mat-label>From: {{ sender }}</mat-label>
+      <input matInput disabled value="">
+    </mat-form-field>
+    <mat-form-field class="To">
+      <mat-label>To:</mat-label>
+      <input type="text"  placeholder="Pick one"
+             aria-label="Number"
+             matInput
+             [(ngModel)]="receiver"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+
+        @for (option of filteredOptions | async; track option) {
+          <mat-option [value]="option">{{option.name}}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <section>
+
+    <mat-form-field class="messageContainer" >
+      <mat-label>Message</mat-label>
+      <textarea [(ngModel)]="text" placeholder="Message..." matInput class="text" ></textarea>
+    </mat-form-field>
+  </section>
+  <mat-divider></mat-divider>
+  <div class="buttons">
+    <mat-dialog-actions>
+      <button mat-flat-button color="primary" (click)="onNoClick()">Cancel</button>
+      <button mat-flat-button color="primary" (click)="Send()">Answer</button>
+    </mat-dialog-actions>
+  </div>
+
+
+
+
+
+
+
+</div>

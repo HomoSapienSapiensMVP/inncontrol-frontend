@@ -1,0 +1,23 @@
+<div class="cardContent">
+  <div class="header">
+    <h2 class="title">Task: {{ task.name }}</h2>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    <p>{{ task.description }}</p>
+    <p>Status: {{ task.pending ? "Pending" : "Completed" }}</p>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:black">
+
+  <p>Due Date: {{ task.dueDate }}</p>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:black">
+
+  <div class="btn_container" *ngIf="task.pending">
+    <button mat-flat-button color="primary" (click)="toggleTaskStatus()">
+      Mark as {{ task.pending ? "Completed" : "Pending" }}
+    </button>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:black">
+</div>
+

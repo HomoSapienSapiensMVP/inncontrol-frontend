@@ -1,0 +1,64 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Add Task</h2>
+  <button mat-icon-button class="close" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <form [formGroup]="TaskItemFormGroup" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Task Title</mat-label>
+      <input matInput formControlName="taskName">
+      <mat-error *ngIf="TaskItemFormGroup.get('taskName')?.invalid">
+        Please enter a valid name
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="rectangle-description">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" class="input-large">
+      <mat-error *ngIf="TaskItemFormGroup.get('description')?.invalid">
+        Please enter a valid description
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <div class="flex-container">
+      <mat-form-field>
+        <mat-label> Due Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dueDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="TaskItemFormGroup.get('dueDate')?.invalid">
+          Please enter a valid Date
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Due Time</mat-label>
+        <input matInput type="time" formControlName="dueTime" placeholder="Data Lezione"/>
+        <mat-datepicker></mat-datepicker>
+        <mat-hint>HH:MM</mat-hint>
+        <mat-error *ngIf="TaskItemFormGroup.get('dueTime')?.invalid">
+          Please enter a valid Time
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <br>
+    <mat-form-field style="width: 100%">
+      <mat-label>Employee Email</mat-label>
+      <!--      NOT input a combo select with all the emails-->
+      <mat-select formControlName="employee">
+        <mat-option *ngFor="let employee of getEmployeesEmails()" [value]="employee">{{ employee}}</mat-option>
+      </mat-select>
+        <mat-error *ngIf="TaskItemFormGroup.get('employee')?.invalid">
+          Please enter employee
+        </mat-error>
+    </mat-form-field>
+    <br>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [disabled]="TaskItemFormGroup.invalid">Add</button>
+</mat-dialog-actions>

@@ -1,0 +1,52 @@
+.roomCardContent {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+.roomNumber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alertRoom {
+  color: #3f76b5;
+}
+
+.titleroom {
+  display: flex;
+  align-items: center;
+}
+
+.card-content:hover .alert {
+  color: #ee0e0e;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+.textcontentroom {
+  width: 50%;
+  height: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.subtitle-text-room {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtitle {
+  width: 50%;
+  height: 5rem;
+}
+

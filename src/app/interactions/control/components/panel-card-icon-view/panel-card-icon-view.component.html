@@ -1,0 +1,16 @@
+<div class="panel-card-view w-full">
+  <h1 class="mb-5 text-[#3f51b5]">
+    {{ title }}
+  </h1>
+
+  <div class="flex flex-col gap-5 justify-center items-center">
+    <app-panel-card-icon
+      class="w-full"
+      *ngFor="let icon of icons"
+      [icon]="icon.icon"
+      [title]="icon.title"
+      [toRoute]="icon.toRoute"
+    >
+    </app-panel-card-icon>
+  </div>
+</div>

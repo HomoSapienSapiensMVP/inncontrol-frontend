@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport position="end">
+    <mat-toolbar>InnControl</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of items">
+        <app-sidebar-item (click)="drawer.toggle();"
+                          [icon]="item.icon"
+                          [title]="item.title"
+                          [toRoute]="item.toRoute"/>
+      </mat-list-item>
+      <hr>
+      <mat-list-item>
+        <app-sidebar-item (click)="drawer.toggle();"
+                          [icon]="PanelCardIcon.Logout"
+                          [title]="'Logout'"
+                          [logout]="true">
+        </app-sidebar-item>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="fix">
+      <div class="img-div">
+        <a
+          [routerLink]="['/']"
+        >
+          <img src="assets/img/innControl.svg" alt="innControl" height="40" width="201">
+        </a>
+      </div>
+      <span class="spacer"></span>
+      <div *ngIf="isLogged">
+        @for(item of items; track $index){
+           @if(!item.manager || role == roles.MANAGER){
+             <button mat-button (click)="sendToRoute(item.toRoute)" *ngIf="!(isHandset$ | async)">{{ item.title }}</button>
+           }
+        }
+      </div>
+
+      <div *ngIf="isLogged">
+        <button *ngIf="isHandset$ | async" (click)="drawer.toggle()" mat-icon-button color="white"
+                aria-label="Open navbar">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+      <!--      if has pending notifications-->
+      <app-notifications-badge *ngIf="false"/>
+<!--      <app-notifications-badge *ngIf="isLogged"/>-->
+      <br>
+      <div *ngIf="isLogged">
+        <button mat-icon-button  (click)="sendToRoute('/logout')" *ngIf="!(isHandset$ | async)">
+          <mat-icon>logout</mat-icon>
+          </button>
+      </div>
+    </mat-toolbar>
+
+    <router-outlet/>
+
+<!--    <app-footer-content/>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>

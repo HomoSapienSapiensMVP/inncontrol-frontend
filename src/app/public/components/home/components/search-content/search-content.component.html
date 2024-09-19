@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSearch()">
+  <mat-form-field ngDefaultControl [formControl]="searchController">
+    <span matPrefix> </span>
+    <input type="tel" matInput placeholder="Search" name="search">
+    <button mat-icon-button matSuffix [matMenuTriggerFor]="menu">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button (click)="onSelect(titles.title)" mat-menu-item *ngFor="let titles of options"  >{{titles.title}}</button>
+  </mat-menu>
+  </mat-form-field>
+</form>

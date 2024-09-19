@@ -1,0 +1,53 @@
+<!-- manager-profile.component.html -->
+
+
+<div class="manager-profile-container">
+  <div class="manager-header">
+    <img class="manager-avatar" src="https://i.imgur.com/gGTAClo.jpeg" alt="Manager Avatar">
+    <div class="manager-name">{{ rollDescription() }} Name:  {{ userLogged.names }} {{ userLogged.lastName }}</div>
+  </div>
+
+  <div class="all-container">
+    <div class="manager-information" *ngIf=isManager>
+      <div class="manager-name-container">
+<!--        <h2 style="font-weight: bold">Manager Key: 323234</h2>-->
+      </div>
+      <div class="manager-edit-button">
+        <button mat-button (click)="openEditDialog()">Edit User</button>
+      </div>
+      <div class="manager-edit-button">
+        <button mat-raised-button color="primary">Delete</button>
+      </div>
+    </div>
+
+    <div class="manager-content">
+      <div class="profile-info">
+        <h3>Account Information:</h3>
+        <p><strong>Phone Number:</strong> {{ userLogged.phoneNumber }}</p>
+        <p><strong>Email:</strong> {{ userLogged.email }}</p>
+        <p><strong>Tasks Done Today:</strong> 6/9</p>
+        <p><strong>Work Hours:</strong> 09:00 - 13:00</p>
+        <button mat-raised-button color="primary">Update</button>
+
+      </div>
+      <div class="messages">
+        <h3>Messages:</h3>
+        <div class="message">
+          <h4>Message Title</h4>
+          <p><strong>From:</strong> Arturo Pinos</p>
+          <p><strong>To:</strong> Juan Carlos</p>
+          <p><strong>Sent:</strong> 22/04/2024</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="message">
+          <h4>Message Title 2</h4>
+          <p><strong>From:</strong> Arturo Pinos</p>
+          <p><strong>To:</strong> Juan Carlos</p>
+          <p><strong>Sent:</strong> 22/04/2024</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

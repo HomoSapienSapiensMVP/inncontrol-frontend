@@ -1,0 +1,40 @@
+
+
+.header
+{
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage
+{
+  border: solid 1px rgba(172, 172, 172, 0.5);
+  border-radius: 50%;
+  height: 10rem;
+  margin: 1rem;
+  width: 10rem;
+  object-fit: cover;
+}
+
+.title
+{
+  margin-top: 1rem;
+}
+
+.text{
+  border: solid 1px rgba(172, 172, 172, 0.5);
+  border-radius: 0.2rem;
+  height: 20rem;
+  padding: 1rem;
+  margin: 0 1rem;
+  width: 70vw;
+}
+
+@media screen and (max-width: 768px) {
+  .text{
+    width: auto;
+  }
+}

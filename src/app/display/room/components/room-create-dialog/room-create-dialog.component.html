@@ -1,0 +1,73 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Add Room</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName">
+        <mat-error *ngIf="taskForm.get('firstName')?.invalid && taskForm.get('firstName')?.touched">
+          It must have 2 words minimum
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+        <mat-error *ngIf="taskForm.get('lastName')?.invalid && taskForm.get('lastName')?.touched">
+          It must have 2 words minimum
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of typeOptions" [value]="type">{{type}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="taskForm.get('type')?.invalid && taskForm.get('type')?.touched">
+          Please select a valid type
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="state">
+          <mat-option *ngFor="let state of stateOptions" [value]="state">{{state}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="taskForm.get('state')?.invalid && taskForm.get('state')?.touched">
+          Please select a valid state
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Room Number</mat-label>
+        <input matInput formControlName="roomNumber">
+        <mat-error *ngIf="taskForm.get('roomNumber')?.invalid && taskForm.get('roomNumber')?.touched">
+          Please enter a valid number
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Initial Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="initialDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="taskForm.hasError('dateInvalid')">
+          The initial date cannot be later than the final date
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Final Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="finalDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="taskForm.hasError('dateInvalid')">
+          The initial date cannot be later than the final date
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [mat-dialog-close]="data" [disabled]="taskForm.invalid || roomNumberExists" *ngIf="!data.isUpdate">Add</button>
+  <button mat-button (click)="onSubmit()" [mat-dialog-close]="data" [disabled]="taskForm.invalid || roomNumberExists" *ngIf="data.isUpdate">Update</button>
+</mat-dialog-actions>

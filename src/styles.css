@@ -1,0 +1,106 @@
+/*Angular calendar style  */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  width: 90%;
+  gap: 1rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.card-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  width: 90%;
+  gap: 1rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+}
+
+.card-content {
+  background: #EFEFEF;
+  transition: 0.5s;
+}
+
+.card-content:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 1rem rgba(99, 128, 169, 0.51);
+}
+
+.card {
+  width: 48%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 768px) {
+  .card-display {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+
+/*Style for easy development*/
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col-md-4 {
+  width: 50%
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

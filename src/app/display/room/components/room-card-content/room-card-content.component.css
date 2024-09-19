@@ -1,0 +1,20 @@
+.rooms-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.card-title {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+.rooms-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}

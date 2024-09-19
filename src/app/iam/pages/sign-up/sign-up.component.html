@@ -1,0 +1,70 @@
+<div class="w-full h-[92dvh] bg-[#3f51b5] flex justify-center items-center">
+  <div class="w-[30rem] bg-slate-200 p-5 rounded-lg">
+    <h3>Registrarse</h3>
+    <form [formGroup]="myForm" (ngSubmit)="signUpAccount()" class="form-add-post">
+    
+      <div class="input-box">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Nombres</mat-label>
+          <input matInput type="text" placeholder="Ingrese su nombre" [(ngModel)]="this.firstName" formControlName="firstName" required>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Apellidos</mat-label>
+          <input matInput type="text" placeholder="Ingrese su apellido" [(ngModel)]="this.lastName" formControlName="lastName" required>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Número de contacto</mat-label>
+          <input matInput type="phoneNumber" placeholder="Ingrese su número de contacto" [(ngModel)]="this.phoneNumber" formControlName="phoneNumber" required>
+          <mat-error *ngIf="myForm.get('phoneNumber')?.invalid">
+            Número de contacto es requerido y debe ser un número de contacto válido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Ingrese un email" [(ngModel)]="this.email" formControlName="email" required>
+          <mat-error *ngIf="myForm.get('email')?.invalid">
+            Email es requerido y debe ser un email válido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    
+      <div class="input-box">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="Ingrese su contraseña" [(ngModel)]="this.password" formControlName="password" required>
+          <mat-error *ngIf="myForm.get('password')?.invalid">
+            Contraseña es requerida y debe tener al menos 6 caracteres.
+          </mat-error>
+        </mat-form-field>
+        <div class="input-box role-selection">
+          <label>
+            <input  type="radio" name="role" (click)="setRollUser(1)" checked
+            >
+            Empleado
+          </label>
+          <label>
+            <input type="radio" name="role" (click)="setRollUser(2)" >
+            Gerente
+          </label>
+        </div>
+      </div>
+      <div class="content-button" style="text-align: center">
+        <button class="text-white bg-[#3f51b5] rounded-lg w-full py-3 hover:bg-[#28378d] transition" type="submit" (click)="signUpAccount()">Registrarse</button>
+        <div class="text-signup">
+          <p  style="padding-top: 1rem">¿Ya te encuentras registrado?</p>
+          <a routerLink="/login" class="text-[#3f51b5] font-bold" >Inicia sesión</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

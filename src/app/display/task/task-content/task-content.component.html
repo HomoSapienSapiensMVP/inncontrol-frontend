@@ -1,0 +1,37 @@
+<div class=" bg-slate-200 w-full h-[92dvh]">
+  <div class="flex flex-col justify-center items-start gap-4 py-8 mx-16 ">
+    <div class="task-container">
+      <h1 class="card-title">Tareas</h1>
+    </div>
+    <div class="task-container">
+      <div class="task-buttons">
+        <mat-form-field>
+          <mat-label> <mat-icon>search</mat-icon> Filtrar</mat-label>
+          <input matInput #filterInput (keyup)="applyFilter($event)" placeholder="Ej. Tarea 1">
+        </mat-form-field>
+        <button mat-icon-button (click)="resetFilter(filterInput)">
+          <mat-icon>refresh</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="filterMenu">
+          <mat-icon>filter_list</mat-icon>
+        </button>
+        <mat-menu #filterMenu="matMenu">
+          <button mat-menu-item (click)="filterType = 'name'">Nombre de la tarea</button>
+          <button mat-menu-item (click)="filterType = 'description'">Descripción</button>
+          <button mat-menu-item (click)="filterType = 'dueDate'">Fecha límite</button>
+          <button mat-menu-item (click)="filterType = 'pending'">Estado</button>
+          <button mat-menu-item (click)="filterType = 'employeeEmail'">Empleado</button>
+        </mat-menu>
+      </div>
+      <div class="task-buttons ml-2" *ngIf="isManager">
+        <app-task-creation (taskCreated)="createTask($event)"></app-task-creation>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-start mx-16">
+    <div class="flex flex-wrap gap-10 ">
+      <app-task-card class="w-fit" *ngFor="let task of filteredTasks" [task]="task" (update)="handleUpdate($event)" (delete)="onDeleteItem($event)"></app-task-card>
+    </div>
+  </div>
+  
+</div>
