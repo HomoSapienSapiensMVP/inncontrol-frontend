@@ -44,7 +44,7 @@ export class RoomCreateDialogComponent implements OnInit {
       type: new FormControl('', [
         Validators.required
       ]),
-      state: new FormControl('', [
+      state: new FormControl('OCCUPIED', [
         Validators.required
       ]),
       roomNumber: new FormControl('', [
@@ -112,10 +112,10 @@ export class RoomCreateDialogComponent implements OnInit {
       formValues.firstName,
       formValues.lastName,
       formValues.type,
-      formValues.state,
+      'OCCUPIED',
       formValues.roomNumber,
-      formValues.initialDate,
-      formValues.finalDate
+      formValues.finalDate,
+      formValues.initialDate
     );
 
     this.roomsApiService.createRoom(newRoom).pipe(

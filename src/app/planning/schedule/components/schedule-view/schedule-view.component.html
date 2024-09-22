@@ -1,8 +1,8 @@
 <div class="row text-center" *ngIf="canChangeView">
   <div class="col-md-4">
-    <div class="btn-group">
+    <div class="flex">
       <button
-        mat-raised-button color="primary"
+        class="bg-blue-800 rounded-s-lg text-white w-24 hover:bg-blue-900"
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -11,14 +11,14 @@
         Previous
       </button>
       <button
-        mat-raised-button
+        class="bg-slate-200 text-black w-24 hover:bg-slate-400"
         mwlCalendarToday
         [(viewDate)]="viewDate"
       >
         Today
       </button>
       <button
-        mat-raised-button color="primary"
+        class="bg-blue-800 rounded-e-lg w-24 text-white hover:bg-blue-900"
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -29,26 +29,26 @@
     </div>
   </div>
   <div class="col-md-4">
-    <p>
+    <p class="font-bold">
       {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
     </p>
   </div>
   <div class="col-md-4">
-    <div class="btn-group">
+    <div class="flex justify-end">
       <button
-        mat-raised-button color="primary"
+        class="bg-blue-800 rounded-s-lg w-24 text-white hover:bg-blue-900"
         (click)="setView(CalendarView.Month)"
       >
         Month
       </button>
       <button
-        mat-raised-button color="primary"
+        class="bg-blue-800 text-white hover:bg-blue-900"
         (click)="setView(CalendarView.Week)"
       >
         Week
       </button>
       <button
-        mat-raised-button color="primary"
+        class="bg-blue-800 rounded-e-lg w-24 text-white hover:bg-blue-900"
         (click)="setView(CalendarView.Day)"
       >
         Day

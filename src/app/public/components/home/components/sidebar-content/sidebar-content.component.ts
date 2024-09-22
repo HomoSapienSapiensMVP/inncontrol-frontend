@@ -16,12 +16,13 @@ export class SidebarContentComponent {
 
   items: PanelCard[] = [
     new PanelCard('Pagina Principal', PanelCardIcon.Home, '/control', false),
-    new PanelCard('Perfil', PanelCardIcon.Profile, '/profile', false),
     new PanelCard('Tareas', PanelCardIcon.Tasks, '/tasks', false),
     new PanelCard('Habitaciones', PanelCardIcon.Rooms, '/rooms', false),
-    new PanelCard('Inventario', PanelCardIcon.Inventory, '/inventory', true),
+    //new PanelCard('Inventario', PanelCardIcon.Inventory, '/inventory', true),
     new PanelCard('Empleados', PanelCardIcon.Employees, '/employees', true),
-    new PanelCard('Mensajes', PanelCardIcon.Messages, '/messages', false),
+    //new PanelCard('Mensajes', PanelCardIcon.Messages, '/messages', false),
+    new PanelCard('Perfil', PanelCardIcon.Profile, '/profile', false),
+    //new PanelCard('Rendimiento', PanelCardIcon.Employees, '/performance', false),
   ]
 
   logout() {

@@ -64,7 +64,7 @@ export class UserProfileContentComponent implements OnInit {
   }
 
   rollDescription(): string {
-    return this.userLogged.rolUser === 1 ? 'Manager' : 'Employee';
+    return this.userLogged.rolUser === 1 ? 'Gerente' : 'Empleado';
   }
 
   openEditDialog(): void {

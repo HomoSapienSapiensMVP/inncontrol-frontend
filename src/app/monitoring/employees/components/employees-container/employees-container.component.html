@@ -1,12 +1,14 @@
-<div class="container">
-  <span class="header"> <h1 class="card-title">Employee</h1>
-    <button mat-icon-button  aria-label="Employee filter button" (click)="receiveFilter('Unread')">
-    </button>
-  </span>
-  <span class="header">
-    <app-search-content [options]="this.options" (optionSelected)="receiveFilter($event)" (search)="searchFilter($event)" ></app-search-content>
-  </span>
-  <div class="card-display">
+<div class="flex flex-col w-full h-[92dvh] justify-start items-start px-10 gap-6 bg-slate-200">
+  <div class="w-full flex flex-row items-center justify-between gap-2 bg-white rounded-xl p-4 shadow-lg mt-6">
+    <span class="header"> <h1 class="card-title">Empleados</h1>
+      <button mat-icon-button  aria-label="Employee filter button" (click)="receiveFilter('Unread')">
+      </button>
+    </span>
+    <span class="header">
+      <app-search-content [options]="this.options" (optionSelected)="receiveFilter($event)" (search)="searchFilter($event)" ></app-search-content>
+    </span>
+  </div>
+  <div class="flex flex-wrap gap-6 justify-start items-start">
     <app-employee-card class="card" *ngFor="let employees of EmployeesArray" [employee]="employees" [name]="employees.names"
                        [email]="employees.email"
                        (deleted)="deleteEmployee($event)" (updated)="updateEmployee($event)" ></app-employee-card>

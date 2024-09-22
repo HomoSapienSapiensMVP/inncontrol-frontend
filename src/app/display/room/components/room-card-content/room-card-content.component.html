@@ -1,17 +1,13 @@
-<div class="rooms-container">
-  <h1 class="card-title">Rooms</h1>
-</div>
-<div class="rooms-container">
-  <div class="rooms-buttons">
-    <app-room-create-button (roomCreated)="createRoom($event)"></app-room-create-button>
+<div class="bg-slate-200 w-full h-[92dvh] py-3 px-12">
+  <div class="bg-white py-8 px-6 my-6 rounded-lg shadow-lg flex items-center justify-between">
+    <p class="card-title">Habitaciones</p>
+    <div class="rooms-buttons">
+      <app-room-create-button (roomCreated)="createRoom($event)"></app-room-create-button>
+    </div>
+  </div>
+  <div class="w-full">
+    <div class="w-full flex gap-6">
+      <app-rooms-card *ngFor="let room of roomsData" [room]="room" (clicked)="fetchRooms()" (deletedRoomEvent)="onDeleteRoomEvent($event)"></app-rooms-card>
+    </div>
   </div>
 </div>
-<div class="card-container">
-  <div class="card-display">
-    <app-rooms-card class="card" *ngFor="let room of roomsData" [room]="room" (clicked)="fetchRooms()" (deletedRoomEvent)="onDeleteRoomEvent($event)"></app-rooms-card>
-
-    <!--                    (stateRoomEvent)=""-->
-<!--                    (delete)="onDeleteItem($event)"></app-rooms-card>-->
-  </div>
-</div>
-

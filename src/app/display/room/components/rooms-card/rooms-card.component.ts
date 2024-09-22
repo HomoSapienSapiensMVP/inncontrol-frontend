@@ -59,7 +59,6 @@ export class RoomsCardComponent {
   editRoom(room: RoomRequest): void {
     var dates = this.getNiceDates(room.roomReservation);
     const dialogRef = this.dialog.open(RoomCreateDialogComponent, {
-      width: '350px',
       data: {
         isUpdate: true,
         id: room.id,

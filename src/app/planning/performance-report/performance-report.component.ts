@@ -3,6 +3,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {Task} from "../../shared/model/task/task.entity";
+import {TaskApiService} from "../../shared/services/task/task-api.service";
 
 @Component({
   selector: 'app-performance-report',
@@ -13,18 +14,29 @@ export class PerformanceReportComponent implements AfterViewInit {
 
   tasks: Task[] = [];
 
-  length: number = 1;
+  length: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['taskName', 'userid', 'status'];
-  dataSource: MatTableDataSource<Task>;
+  displayedColumns: string[] = ['taskName', 'status', 'userid', 'creationDate'];
+  dataSource: MatTableDataSource<Task> = new MatTableDataSource<Task>();
 
-  constructor() {
-    this.dataSource = new MatTableDataSource(this.tasks);
-    // this.tasks.push(new Task(1, 'Task 1', 'Description 1', new Date(), 'pending', new Date(), 'employee1'));
-    length = this.tasks.length;
-    console.log('Serio ' + this.length);
+  constructor(
+    private taskService: TaskApiService,
+  ) {
+    //this.tasks.push(new Task(1, 'Task 1', 'Description 1', false, new Date(), 'employee@gmail.com'));
+    this.getAllTasks();
+  }
+
+  getAllTasks() {
+    this.taskService
+      .getAll()
+      .pipe()
+      .subscribe((response: any) => {
+        this.tasks = response;
+        console.log(this.tasks);
+        this.dataSource = new MatTableDataSource(this.tasks);
+      });
   }
 
   onTaskCreatedEvent($event: Task) {
@@ -38,6 +50,8 @@ export class PerformanceReportComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.getAllTasks();
+    this.dataSource._updateChangeSubscription();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

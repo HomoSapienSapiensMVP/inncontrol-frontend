@@ -3,13 +3,10 @@
     <h1 class="text-[#3f51b5]">
       Agenda
     </h1>
-    <a mat-icon-button href="/#/schedule">
-      <mat-icon>schedule</mat-icon>
-    </a>
   </div>
 
   <app-schedule-view
-    [canChangeView]="false"
+    [canChangeView]="true"
     [view]="CalendarView.Week"
   ></app-schedule-view>
 </div>

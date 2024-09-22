@@ -14,6 +14,7 @@ import {
 import {ControlPanelPageComponent} from "./interactions/control/pages/control-panel-page/control-panel-page.component";
 import {SchedulePageComponent} from "./planning/schedule/pages/schedule-page/schedule-page.component";
 import {authenticationGuard, loginGuard} from "./iam/services/authentication.guard";
+import { PerformanceReportComponent } from './planning/performance-report/performance-report.component';
 
 const routes: Routes = [
   // {path: 'home', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [loginGuard]},
   {path: 'register', component: SignUpComponent, canActivate: [loginGuard]},
   {path: 'profile/:username', component: UserProfileContentComponent, canActivate: [authenticationGuard]},
+  { path: 'performance', component: PerformanceReportComponent, canActivate: [authenticationGuard] },
   {path: '', redirectTo: 'control', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

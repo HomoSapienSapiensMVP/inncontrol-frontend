@@ -23,13 +23,12 @@ export class ControlPanelPageComponent {
     this.controlPanelCards = [
       new PanelCard('Tareas', PanelCardIcon.Tasks, '/tasks', false),
       new PanelCard('Habitaciones', PanelCardIcon.Rooms, '/rooms', false),
-      new PanelCard('Mensajes', PanelCardIcon.Messages, '/messages', false),
-
+      //new PanelCard('Mensajes', PanelCardIcon.Messages, '/messages', false),
       new PanelCard('Perfil', PanelCardIcon.Profile, '/profile', false),
     ];
     this.managePanelCards = [
       new PanelCard('Empleados', PanelCardIcon.Employees, '/employees', true),
-      new PanelCard('Inventario', PanelCardIcon.Inventory, '/inventory', false),
+      //new PanelCard('Inventario', PanelCardIcon.Inventory, '/inventory', false),
     ];
   }
 }

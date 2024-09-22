@@ -21,24 +21,24 @@
                     <!-- Name Column -->
                     <ng-container matColumnDef="taskName">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Name</th>
-                        <td mat-cell *matCellDef="let row"> {{ row.taskName }}</td>
+                        <td mat-cell *matCellDef="let row"> {{ row.name }}</td>
                     </ng-container>
 
 
                     <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
-                        <td mat-cell *matCellDef="let row"> {{ row.status }}</td>
+                        <td mat-cell *matCellDef="let row"> {{ row.pending? 'Pendiente': 'Completado' }}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="userid">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee's name</th>
-                        <td mat-cell *matCellDef="let row"> {{ row.userId }}</td>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee's email</th>
+                        <td mat-cell *matCellDef="let row"> {{ row.employeeEmail }}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="creationDate">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> created</th>
-                        <td mat-cell *matCellDef="let row"> {{ row.creationDate | date: 'yyyy/MM/dd' }}
-                            | {{ row.creationDate | date:'HH:MM' }}
+                        <td mat-cell *matCellDef="let row"> {{ row.dueDate | date: 'yyyy/MM/dd' }}
+                            | {{ row.dueDate | date:'HH:MM' }}
                         </td>
                     </ng-container>
 
